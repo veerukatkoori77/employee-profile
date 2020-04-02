@@ -1,0 +1,43 @@
+#%RAML 1.0
+version: v1
+title: Employee Profile API
+
+
+/employeeProfile:
+  post:
+    body:
+      application/json:
+        type: !include dataTypes/employeeDataType.raml
+        example:
+          !include dataTypes/employeeExample.raml
+    responses:
+      201:
+  /camelCase:
+    post:
+      body:
+        application/json:
+          type: !include dataTypes/employeeDataType.raml
+          example:
+            !include dataTypes/employeeExample.raml
+            
+/employeeData:
+  get:
+
+/employeeRecords:
+  get:
+ 
+
+/List:
+  /{listId}:
+    uriParameters:
+      listId:
+        type: integer
+        required: true
+        example: 10
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                value: [1,2,3]
